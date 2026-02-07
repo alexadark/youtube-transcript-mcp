@@ -18,13 +18,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webstantly/youtube-transcript-mcp.git"
+    "url": "git+https://github.com/alexadark/youtube-transcript-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/webstantly/youtube-transcript-mcp/issues"
+    "url": "https://github.com/alexadark/youtube-transcript-mcp/issues"
   },
-  "homepage": "https://github.com/webstantly/youtube-transcript-mcp#readme",
-  "author": "webstantly",
+  "homepage": "https://github.com/alexadark/youtube-transcript-mcp#readme",
+  "author": "alexadark",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",

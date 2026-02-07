@@ -21,7 +21,7 @@ A Model Context Protocol (MCP) server that fetches YouTube video transcripts wit
 
 ```bash
 # Clone the repository
-git clone https://github.com/webstantly/youtube-transcript-mcp.git
+git clone https://github.com/alexadark/youtube-transcript-mcp.git
 cd youtube-transcript-mcp
 
 # Install dependencies and build
