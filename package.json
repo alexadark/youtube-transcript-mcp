@@ -1,9 +1,20 @@
 {
   "name": "youtube-transcript-mcp",
   "version": "1.0.0",
-  "description": "MCP server for fetching YouTube transcripts with proper text formatting",
+  "description": "Get YouTube transcripts in Claude with natural language - no technical syntax needed",
   "type": "module",
   "main": "build/index.js",
+  "bin": {
+    "youtube-transcript-mcp": "build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
@@ -14,7 +25,11 @@
     "model-context-protocol",
     "youtube",
     "transcript",
-    "claude"
+    "claude",
+    "anthropic",
+    "ai",
+    "video",
+    "captions"
   ],
   "repository": {
     "type": "git",

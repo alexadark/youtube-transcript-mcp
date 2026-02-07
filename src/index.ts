@@ -111,7 +111,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: "get_transcript",
         description:
-          "Fetch and format YouTube video transcript. Supports multiple output formats: plain text (readable paragraphs), timestamped text (each line with timestamp), or structured JSON.",
+          "Fetches YouTube video transcripts. When a user shares a YouTube URL, use this tool to retrieve the transcript. If the user doesn't specify a format preference, ask them how they'd like to view it: as readable text (plain), with timestamps for referencing specific moments (timestamped), or as structured data (json).",
         inputSchema: {
           type: "object",
           properties: {
@@ -129,7 +129,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               type: "string",
               enum: ["plain", "timestamped", "json"],
               description:
-                "Output format: 'plain' for readable text (default), 'timestamped' for text with timestamps, 'json' for structured data",
+                "Output format: 'plain' for readable text (default), 'timestamped' for text with [00:00] timestamps, 'json' for structured data with metadata",
               default: "plain",
             },
           },

@@ -1,114 +1,74 @@
 # YouTube Transcript MCP
 
-A Model Context Protocol (MCP) server that fetches YouTube video transcripts with proper text formatting. Returns clean, readable text instead of `[object Object]`.
+Get YouTube video transcripts directly in Claude. Just share a YouTube link - no technical syntax needed.
 
-## Features
+## What It Does
 
-- ✅ **Three output formats**: plain text, timestamped, or JSON
-- ✅ **Multi-language support**: Fetch transcripts in any available language
-- ✅ **Proper text formatting**: Returns actual transcript text, not object references
-- ✅ **Flexible input**: Accepts YouTube URLs or video IDs
-- ✅ **Error handling**: Clear error messages for common issues
+Share any YouTube URL with Claude, and this MCP lets Claude fetch the transcript for you. Claude will naturally ask how you'd like to view it:
+
+- **Readable text** - Clean paragraphs, perfect for reading and analysis
+- **With timestamps** - Each line shows when it was said (great for referencing specific moments)
+- **Structured data** - JSON format with full metadata (for developers)
+
+Works with any YouTube video that has captions, in any language.
 
 ## Installation
 
-### Prerequisites
-
-- Node.js 18 or higher
-- npm or yarn
-
-### Quick Install
+**One command:**
 
 ```bash
-# Clone the repository
-git clone https://github.com/alexadark/youtube-transcript-mcp.git
-cd youtube-transcript-mcp
-
-# Install dependencies and build
-npm install
-npm run build
+npm install -g youtube-transcript-mcp
 ```
 
-## Configuration
+## Setup
 
-### Claude Code
-
-Add to your Claude Code configuration:
+### For Claude Code
 
 ```bash
-claude mcp add --transport stdio youtube-transcript \
-  -- node /path/to/youtube-transcript-mcp/build/index.js
+claude mcp add youtube-transcript
 ```
 
-**Example**:
-```bash
-claude mcp add --transport stdio youtube-transcript \
-  -- node ~/DEV/mcp/youtube-transcript-mcp/build/index.js
-```
+Restart Claude Code and you're done!
 
-### Claude Desktop
+### For Claude Desktop
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+1. Open `~/Library/Application Support/Claude/claude_desktop_config.json`
+2. Add this:
 
 ```json
 {
   "mcpServers": {
     "youtube-transcript": {
-      "command": "node",
-      "args": [
-        "/Users/YOUR_USERNAME/DEV/mcp/youtube-transcript-mcp/build/index.js"
-      ]
+      "command": "npx",
+      "args": ["-y", "youtube-transcript-mcp"]
     }
   }
 }
 ```
 
-**Important**: Replace `YOUR_USERNAME` and the path with your actual values.
+3. Restart Claude Desktop
 
-## Usage
+## How to Use
 
-### Get Transcript (Plain Text)
+Just chat naturally with Claude:
 
-The default format returns clean, readable text:
+> "Can you get the transcript from https://youtu.be/dQw4w9WgXcQ?"
 
-```typescript
-get_transcript({
-  url: "https://youtu.be/eT_6uaHNlk8",
-  lang: "en"
-})
-```
+> "Summarize this video: https://youtu.be/eT_6uaHNlk8"
 
-### Get Transcript (Timestamped)
+> "Get me the transcript with timestamps from this tutorial..."
 
-Get each line prefixed with its timestamp:
+Claude will handle everything - fetching the transcript, asking about your format preference, and displaying it clearly.
 
-```typescript
-get_transcript({
-  url: "https://youtu.be/eT_6uaHNlk8",
-  lang: "en",
-  format: "timestamped"
-})
-```
+### Multiple Languages
 
-### Get Transcript (JSON)
+Works with any language that has captions:
 
-Get structured data for processing:
+> "Get the Spanish transcript from this video"
 
-```typescript
-get_transcript({
-  url: "https://youtu.be/eT_6uaHNlk8",
-  lang: "en",
-  format: "json"
-})
-```
+> "Show me this video's transcript in French"
 
-## Parameters
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `url` | string | ✅ Yes | - | YouTube video URL or video ID |
-| `lang` | string | No | `"en"` | Language code (e.g., 'en', 'es', 'fr') |
-| `format` | string | No | `"plain"` | Output format: 'plain', 'timestamped', or 'json' |
+Common language codes: `en`, `es`, `fr`, `de`, `ja`, `ko`, `zh`, `pt`, `ru`, `ar`, `hi`
 
 ## License
 
