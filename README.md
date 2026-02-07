@@ -17,7 +17,7 @@ Works with any YouTube video that has captions, in any language.
 **One command:**
 
 ```bash
-npm install -g youtube-transcript-mcp
+npm install -g @alexspalato/youtube-transcript-mcp
 ```
 
 ## Setup
@@ -40,7 +40,7 @@ Restart Claude Code and you're done!
   "mcpServers": {
     "youtube-transcript": {
       "command": "npx",
-      "args": ["-y", "youtube-transcript-mcp"]
+      "args": ["-y", "@alexspalato/youtube-transcript-mcp"]
     }
   }
 }

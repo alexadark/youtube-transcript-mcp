@@ -1,5 +1,5 @@
 {
-  "name": "youtube-transcript-mcp",
+  "name": "@alexspalato/youtube-transcript-mcp",
   "version": "1.0.0",
   "description": "Get YouTube transcripts in Claude with natural language - no technical syntax needed",
   "type": "module",
